@@ -60,12 +60,18 @@ onMounted(() => { void prepare() })
 
 <template>
   <div class="login-control">
-    <UButton v-if="!configured" disabled color="neutral" variant="outline" block size="lg">Apple 登录（未配置）</UButton>
-    <UButton v-else-if="ready" :loading="busy" color="neutral" block size="lg" @click="login">
-      <svg aria-hidden="true" viewBox="0 0 24 24" class="size-5" fill="currentColor"><path d="M17.05 12.54c.03 3.23 2.84 4.3 2.87 4.32-.02.08-.45 1.54-1.48 3.05-.9 1.3-1.83 2.6-3.3 2.63-1.45.04-1.92-.85-3.58-.85-1.66 0-2.18.82-3.55.89-1.42.05-2.5-1.42-3.41-2.72C2.74 17.19 1.32 12.3 3.24 9c.95-1.65 2.65-2.69 4.49-2.71 1.4-.03 2.73.94 3.59.94.86 0 2.47-1.16 4.16-.99.7.03 2.65.28 3.9 2.11-.1.06-2.33 1.36-2.31 4.19ZM14.31 4.48c.75-.9 1.25-2.15 1.11-3.4-1.08.04-2.39.72-3.17 1.62-.69.8-1.29 2.08-1.12 3.3 1.21.09 2.44-.62 3.18-1.52Z" /></svg>
+    <UButton v-if="!configured" disabled color="neutral" variant="outline" block size="lg" class="provider-login-button">
+      <img src="/auth-assets/apple.svg" alt="" width="18" height="18">
+      Apple 登录（未配置）
+    </UButton>
+    <UButton v-else-if="ready" :loading="busy" color="neutral" variant="outline" block size="lg" class="provider-login-button" @click="login">
+      <img src="/auth-assets/apple.svg" alt="" width="18" height="18">
       Sign in with Apple
     </UButton>
-    <UButton v-else :loading="busy" color="neutral" variant="outline" block size="lg" @click="emit('started'); prepare()">重新准备 Apple 登录</UButton>
+    <UButton v-else :loading="busy" color="neutral" variant="outline" block size="lg" class="provider-login-button" @click="emit('started'); prepare()">
+      <img src="/auth-assets/apple.svg" alt="" width="18" height="18">
+      重新准备 Apple 登录
+    </UButton>
     <p v-if="errorMessage" class="login-error" role="alert">{{ errorMessage }}</p>
   </div>
 </template>

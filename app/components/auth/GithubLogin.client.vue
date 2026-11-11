@@ -24,7 +24,10 @@ async function login() {
 
 <template>
   <div class="login-control">
-    <UButton :disabled="!configured" :loading="busy" color="neutral" variant="outline" block size="lg" @click="login">{{ configured ? '使用 GitHub 登录' : 'GitHub 登录（未配置）' }}</UButton>
+    <UButton :disabled="!configured" :loading="busy" color="neutral" variant="outline" block size="lg" class="provider-login-button" @click="login">
+      <img src="/auth-assets/github.svg" alt="" width="18" height="18">
+      {{ configured ? '使用 GitHub 登录' : 'GitHub 登录（未配置）' }}
+    </UButton>
     <p v-if="errorMessage" class="login-error" role="alert">{{ errorMessage }}</p>
   </div>
 </template>
