@@ -127,7 +127,7 @@ sequenceDiagram
             S-->>B: nonce/state + HttpOnly 挑战 Cookie
             B->>G: GoogleLogin 组件加载或复用 GIS SDK
             B->>G: 统一 initialize：client ID、nonce、callback、auto_select = false
-            B->>G: renderButton 渲染官方按钮
+            B->>G: GoogleLogin 组件渲染官方按钮（由依赖内部接入 GIS）
             opt NUXT_PUBLIC_GOOGLE_ONE_TAP_ENABLED 为 true
                 B->>G: prompt，每轮挑战尝试一次
             end
@@ -293,7 +293,7 @@ sequenceDiagram
     B->>S: POST /api/auth/google/start
     S-->>B: nonce/state + HttpOnly Cookie
     B->>G: 统一 initialize：client ID、nonce、callback、auto_select = false
-    B->>G: renderButton
+    B->>G: GoogleLogin 组件渲染官方按钮（由依赖内部接入 GIS）
     opt NUXT_PUBLIC_GOOGLE_ONE_TAP_ENABLED 为 true
         B->>G: prompt，每轮挑战一次
     end

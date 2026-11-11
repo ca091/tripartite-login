@@ -20,7 +20,7 @@ pnpm dev
 | Apple | `/` | [Apple 接入](docs/auth/apple.md) |
 | GitHub | `/` | [GitHub 接入](docs/auth/github.md) |
 
-首页 `/` 组合三个独立组件：`AuthGoogleLogin`、`AuthAppleLogin`、`AuthGithubLogin`，所有登录方式共用此入口。登录后展示简洁身份信息，可展开完整脱敏结果；刷新后清空。文档通过 `/docs/auth/<provider>.md` 提供原始 Markdown 阅读，构建时直接打包 `docs/auth/`，不维护额外副本。
+首页 `/` 组合三个独立组件：`AuthGoogleLogin`、`AuthAppleLogin`、`AuthGithubLogin`，所有登录方式共用此入口。登录后展示简洁身份信息，可展开完整脱敏结果；刷新后清空。
 
 先读 [原理、配置说明](docs/auth/README.md)。
 

@@ -123,5 +123,3 @@ Google 使用 vue3-google-login，Apple 和 GitHub 分别使用独立组件。Go
 - [Google 接入](google.md)
 - [Apple 接入](apple.md)
 - [GitHub 接入](github.md)
-- [Nuxt runtimeConfig](https://nuxt.com/docs/4.x/guide/going-further/runtime-config)
-- [Nuxt UI 安装](https://ui.nuxt.com/docs/getting-started/installation/nuxt)
