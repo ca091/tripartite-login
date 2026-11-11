@@ -7,6 +7,10 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint .",
+    "test": "node --test tests/*.test.mjs",
+    "test:smoke": "node tests/http-smoke.mjs",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -30,10 +34,16 @@
     "@tiptap/suggestion": "^3.33.0",
     "@tiptap/vue-3": "^3.33.0",
     "eslint": "^10.14.0",
+    "jose": "^6.2.3",
     "nuxt": "^4.6.4",
     "tailwindcss": "^4.3.5",
-    "typescript": "^7.0.2",
+    "typescript": "~6.0.0",
     "vue": "^3.5.45",
-    "vue-router": "^5.4.0"
+    "vue-router": "^5.4.0",
+    "vue3-google-login": "2.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "vue-tsc": "^3.2.5"
   }
 }

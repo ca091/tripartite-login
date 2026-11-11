@@ -1,0 +1,2 @@
+patchedDependencies:
+  vue3-google-login@2.1.4: patches/vue3-google-login@2.1.4.patch

@@ -1,6 +1,6 @@
 <template>
-  <div>
+  <UApp>
     <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-  </div>
+    <main class="login-page"><NuxtPage /></main>
+  </UApp>
 </template>
