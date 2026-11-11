@@ -1,6 +1,6 @@
 # 三方登录实验室
 
-Nuxt 4 + Vue 3 + TypeScript + Nuxt UI 的第三方登录案例。首批从 `lewo_frontend/nuxt-v4` 迁移 Google、Apple、GitHub，补齐服务端身份验证与逐平台文档。
+Nuxt 4 + Vue 3 + TypeScript + Nuxt UI 的第三方登录案例。
 
 ## 运行
 
@@ -12,10 +12,6 @@ cp .env.example .env # 已有 .env 时不要覆盖
 pnpm dev
 ```
 
-打开终端提示的地址（通常为 `http://localhost:3000`）。首页直接体验三种登录；未配置的平台会禁用登录入口并提示未配置，具体配置见对应文档。
-
-本次迁移已将源项目已有的必要配置映射到本机、被 Git 忽略的 `.env`，没有整体复制源 `.env`。Google/GitHub 配置仍需验证允许域名；Apple 沿用原 Service ID 与 `https://www.photogrid.app`，缺少的 Team ID、Key ID 和私钥预留为空。新克隆需自行填写 `.env`。
-
 ## 案例与文档
 
 | 平台 | 演示路由 | 使用文档 |
@@ -26,7 +22,7 @@ pnpm dev
 
 首页 `/` 组合三个独立组件：`AuthGoogleLogin`、`AuthAppleLogin`、`AuthGithubLogin`，所有登录方式共用此入口。登录后展示简洁身份信息，可展开完整脱敏结果；刷新后清空。文档通过 `/docs/auth/<provider>.md` 提供原始 Markdown 阅读，构建时直接打包 `docs/auth/`，不维护额外副本。
 
-先读 [原理、配置与迁移说明](docs/auth/README.md)。
+先读 [原理、配置说明](docs/auth/README.md)。
 
 ## 验证
 

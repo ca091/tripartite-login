@@ -18,10 +18,6 @@ pnpm dev
 | --- | --- |
 | `/` | 唯一体验页，展示三个登录入口、各自文档链接和身份结果 |
 | `/auth/callback-github` | 客户端处理 GitHub 回调，验证后返回 `/` |
-| `/docs/auth/README.md` | 本文原始 Markdown |
-| `/docs/auth/google.md`、`/docs/auth/apple.md`、`/docs/auth/github.md` | 各平台原始 Markdown |
-
-所有 provider 共用首页入口；不提供单独的 provider 体验页或兼容重定向。`/google`、`/apple`、`/github` 及 `/examples/*` 均返回 404。
 
 首页通过 `<client-only>` 挂载 `AuthLoginCollection`。该组件请求配置状态，显式排列三个登录组件。配置缺失时禁用对应按钮；状态请求失败时提供重试。配置齐全仅表示所需值存在且回调 URL 通过本地格式检查，不代表平台后台已经允许当前站点。
 
@@ -120,9 +116,9 @@ pnpm build
 
 浏览器验收包括：未配置按钮禁用、文档可访问、配置读取失败可重试、Google/Apple 失败后可重新准备、GitHub 成功/取消/缺参/失败后返回首页、结果展开收起与刷新清空。真实授权需在平台获准的 origin/回调下测试；Google `400: origin_mismatch` 处理步骤见 [Google 文档](google.md#本地-origin_mismatch-排查)。
 
-## 迁移来源与平台文档
+## 平台文档
 
-源实现位于 `lewo_frontend/nuxt-v4`：Google 使用 vue3-google-login，Apple 和 GitHub 分别使用独立组件。当前保留这三种接入路线；Google 使用固定版本 `vue3-google-login@2.1.4`，通过组件 props 管理按钮与可选 One Tap，pnpm 补丁修复 nonce 覆盖及宽度更新、卸载处理。增加本站服务端验证和一次性挑战，未迁移 reCAPTCHA、其他登录 provider 或原业务页面。
+Google 使用 vue3-google-login，Apple 和 GitHub 分别使用独立组件。Google 使用固定版本 `vue3-google-login@2.1.4`，通过组件 props 管理按钮与可选 One Tap，pnpm 补丁修复 nonce 覆盖及宽度更新、卸载处理。
 
 - [Google 接入](google.md)
 - [Apple 接入](apple.md)
