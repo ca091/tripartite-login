@@ -9,6 +9,11 @@ body { margin: 0; font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei", 
 .login-option { display: grid; gap: 8px; margin-bottom: 20px; }
 .login-control { display: grid; width: 100%; max-width: 400px; gap: 8px; }
 .login-control > button { min-height: 40px; justify-content: center; }
+.provider-login-button { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 40px; padding: 0 12px; border: 1px solid #dadce0; border-radius: 4px; background: #fff; color: #3c4043; box-shadow: none; font-size: 14px; font-weight: 500; cursor: pointer; }
+.provider-login-button:hover:not(:disabled) { background: #f8faff; border-color: #d2e3fc; }
+.provider-login-button:focus-visible { outline: 2px solid #1a73e8; outline-offset: 2px; }
+.provider-login-button:disabled { cursor: not-allowed; }
+.provider-login-button img { width: 18px; height: 18px; flex-shrink: 0; }
 .doc-link { color: #596579; font-size: 13px; justify-self: end; text-decoration: underline; text-underline-offset: 3px; }
 .doc-link:hover { color: #243146; }
 .login-error { color: #b42318; font-size: 13px; line-height: 1.6; }

@@ -1,4 +1,4 @@
-export const providers = ['google', 'apple', 'github'] as const
+export const providers = ['google', 'apple', 'github', 'microsoft'] as const
 export type Provider = typeof providers[number]
 
 export interface AuthIdentity {

@@ -4,6 +4,7 @@ import { useRuntimeConfig } from '#imports'
 import { providers } from '#shared/types/auth.ts'
 import type { Provider, ProviderStatus } from '#shared/types/auth.ts'
 import { ChallengeStore } from './auth-core'
+import { microsoftRedirectUri } from '#shared/microsoft.ts'
 
 const challenges = new ChallengeStore()
 const cookieName = (provider: Provider) => `oauth_demo_${provider}`
@@ -45,6 +46,14 @@ export function providerStatus(event: H3Event, provider: Provider): ProviderStat
     needed(config.appleKeyId, 'NUXT_APPLE_KEY_ID')
     needed(config.applePrivateKey, 'NUXT_APPLE_PRIVATE_KEY')
     redirectUri = config.public.appleRedirectUri || null
+  }
+  if (provider === 'microsoft') {
+    needed(config.public.microsoftClientId, 'NUXT_PUBLIC_MICROSOFT_CLIENT_ID')
+    try {
+      redirectUri = microsoftRedirectUri(config.public.microsoftRedirectUri, getRequestURL(event).origin)
+    } catch {
+      missing.push('NUXT_PUBLIC_MICROSOFT_REDIRECT_URI（同源 HTTPS 或 localhost 回调）')
+    }
   }
   if (redirectUri) {
     try {

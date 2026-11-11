@@ -19,8 +19,9 @@ pnpm dev
 | Google | `/` | [Google 接入](docs/auth/google.md) |
 | Apple | `/` | [Apple 接入](docs/auth/apple.md) |
 | GitHub | `/` | [GitHub 接入](docs/auth/github.md) |
+| Microsoft（个人账号） | `/` | [Microsoft 接入](docs/auth/microsoft.md) |
 
-首页 `/` 组合三个独立组件：`AuthGoogleLogin`、`AuthAppleLogin`、`AuthGithubLogin`，所有登录方式共用此入口。登录后展示简洁身份信息，可展开完整脱敏结果；刷新后清空。
+首页 `/` 组合四个独立组件：`AuthGoogleLogin`、`AuthAppleLogin`、`AuthGithubLogin`、`AuthMicrosoftLogin`，所有登录方式共用此入口。登录后展示简洁身份信息，可展开完整脱敏结果；刷新后清空。Microsoft 使用官方 MSAL 弹窗，仅支持个人账号，无需 client secret。
 
 先读 [原理、配置说明](docs/auth/README.md)。
 
@@ -29,6 +30,7 @@ pnpm dev
 ```bash
 pnpm test
 pnpm typecheck
+pnpm lint
 pnpm build
 ```
 

@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@nuxt/ui'],
+  modules: ['@nuxt/eslint', '@nuxt/ui', './modules/microsoft-bridge'],
   css: ['~/assets/css/main.css'],
   colorMode: { preference: 'light' },
   nitro: {
@@ -19,7 +19,9 @@ export default defineNuxtConfig({
       githubClientId: '',
       githubRedirectUri: '',
       appleClientId: '',
-      appleRedirectUri: ''
+      appleRedirectUri: '',
+      microsoftClientId: '',
+      microsoftRedirectUri: ''
     }
   },
   compatibilityDate: '2025-07-15',

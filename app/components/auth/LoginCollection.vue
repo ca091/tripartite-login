@@ -33,6 +33,10 @@ function verified(identity: AuthIdentity) {
         <AuthGithubLogin :configured="configured('github')" @started="resetResult" />
         <NuxtLink to="/docs/auth/github.md" target="_blank" class="doc-link" aria-label="GitHub 使用文档">GitHub 文档</NuxtLink>
       </div>
+      <div class="login-option">
+        <AuthMicrosoftLogin :configured="configured('microsoft')" @started="resetResult" @verified="verified" />
+        <NuxtLink to="/docs/auth/microsoft.md" target="_blank" class="doc-link" aria-label="Microsoft 使用文档">Microsoft 文档</NuxtLink>
+      </div>
     </template>
     <p v-else class="muted-copy" role="status">正在加载…</p>
 
